@@ -15,7 +15,7 @@
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
        <% if user_signed_in? %>
          <div class="collapse navbar-collapse" id="Navber">
           <ul class="navbar-nav mr-auto">
@@ -23,10 +23,10 @@
               <%= link_to 'マイページ', user_path, class: "nav-link" %>
             </li>
              <li class="nav-item">
-                <%= link_to '新規投稿', "#", class: "nav-link" %>
+                <%= link_to '新規投稿', new_recipe_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to '投稿一覧', "#", class: "nav-link" %>
+                <%= link_to '投稿一覧', recipes_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -45,16 +45,16 @@
           </ul>
         </div>
        <% end %>
-      
+
     </nav>
-    
+
     <% if flash[:notice] %>
       <div class="alert alert-primary" role="alert"><strong><%= notice %></strong></div>
     <% end %>
     <% if flash[:alert] %>
       <div class="alert alert-danger" role="alert"><strong><%= alert %></strong></div>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>

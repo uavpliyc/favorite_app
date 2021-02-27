@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
   end
-  
+
   def edit
     @user = current_user
   end
-  
+
   def update
     @user = current_user
     if @user.update(user_params)
@@ -14,11 +16,11 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   private
-  
+
   def user_params
     params.require(:user).permit(:mane, :email)
   end
-  
+
 end
